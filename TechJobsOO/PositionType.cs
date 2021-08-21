@@ -4,6 +4,7 @@ namespace TechJobsOO
     public class PositionType
     {
         public int Id { get; }
+
         private static int nextId = 1;
         public string Value { get; set; }
 
@@ -19,5 +20,21 @@ namespace TechJobsOO
         }
 
         // TODO: Add custom Equals(), GetHashCode(), and ToString() methods.
+
+        public override string ToString()
+        {
+            return Value;
+        }
+
+        public override bool Equals(object obj)
+        {
+            return obj is PositionType positionType &&
+                Id == positionType.Id;
+        }
+
+        public override int GetHashCode()
+        {
+            return base.GetHashCode();
+        }
     }
 }
