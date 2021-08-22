@@ -12,6 +12,8 @@ namespace TechJobsOO
         public PositionType JobType { get; set; }
         public CoreCompetency JobCoreCompetency { get; set; }
 
+        private string[] JobLabels = { "ID: ", "Name: ", "Employer: ", "Location: ", "Position Type: ", "Core Competency: " };
+
         // TODO: Add the two necessary constructors.
 
         public Job()
@@ -42,6 +44,15 @@ namespace TechJobsOO
         public override int GetHashCode()
         {
             return base.GetHashCode();
+        }
+
+        public override string ToString()
+        {
+            string jobString = JobLabels[1] + this.Name;
+
+            return jobString;
+
+
         }
     }
 }
