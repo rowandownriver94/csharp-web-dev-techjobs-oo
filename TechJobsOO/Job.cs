@@ -1,4 +1,6 @@
 ﻿using System;
+using System.Collections.Generic;
+
 namespace TechJobsOO
 {
     public class Job
@@ -12,7 +14,6 @@ namespace TechJobsOO
         public PositionType JobType { get; set; }
         public CoreCompetency JobCoreCompetency { get; set; }
 
-        private string[] JobLabels = { "ID: ", "Name: ", "Employer: ", "Location: ", "Position Type: ", "Core Competency: " };
 
         // TODO: Add the two necessary constructors.
 
@@ -48,9 +49,25 @@ namespace TechJobsOO
 
         public override string ToString()
         {
-            string jobString = JobLabels[1] + this.Name;
+            //List<string> jobListings = new List<string>();
 
-            return jobString;
+            if (Name == null && EmployerName == null && EmployerLocation == null && JobType == null && JobCoreCompetency == null)
+            {
+                return ($"\nOops! That job doesn't seem to exist.\n");
+            }
+            else
+            {
+                string jobListings = ($"\nID: {Id}\n" +
+                                      $"Name: {(Name != "" ? Name : "Data not available.")}\n" +
+                                      $"Employer: {(EmployerName.Value != "" ? EmployerName.Value : "Data not available.")}\n" +
+                                      $"Location: {(EmployerLocation.Value != "" ? EmployerLocation.Value : "Data not available.")}\n" +
+                                      $"Position Type: {(JobType.Value != "" ? JobType.Value : "Data not available.")}\n" +
+                                      $"Core Competency: {(JobCoreCompetency.Value != "" ? JobCoreCompetency.Value : "Data not available.")}\n");
+
+                return jobListings;
+
+
+            }
 
 
         }
